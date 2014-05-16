@@ -1,0 +1,5 @@
+# Always sort the files
+--sort-files
+
+# Define BitBake file type
+--type-set=bitbake=.bb,.bbappend,.bbclass,.conf,.inc
