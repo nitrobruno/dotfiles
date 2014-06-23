@@ -1,5 +1,6 @@
 # Always sort the files
 --sort-files
 
-# Define BitBake file type
+# New file type definitions
 --type-set=bitbake=.bb,.bbappend,.bbclass,.conf,.inc
+--type-set=qt=.cpp,.cc,.cxx,.c,.m,.hpp,.hh,.h,.hxx,.qml,.qrc,.pro
