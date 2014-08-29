@@ -106,10 +106,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# LPCXpresso tool path
-PATH=$PATH:/opt/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/bin;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 76F21B1B-D115-4C1F-9AFB-2CE4BEEF8C96 24F5CCCB-1C01-5CF3-38E6-3720260255F3
-PATH=$PATH:/opt/nxp/lpcxpresso_5.2.4_2122/lpcxpresso/tools/bin;export PATH; # ADDED BY INSTALLER - DO NOT EDIT OR DELETE THIS COMMENT - 76F21B1B-D115-4C1F-9AFB-2CE4BEEF8C96 24F5CCCB-1C01-5CF3-38E6-3720260255F3
-
 # Android SDK
 export PATH=$PATH:~/.android-sdk/tools
 export PATH=$PATH:~/.android-sdk/platform-tools
