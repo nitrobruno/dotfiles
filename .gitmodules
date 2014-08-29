@@ -1,3 +1,4 @@
 [submodule "home/.vim"]
 	path = home/.vim
 	url = git@github.com:nitrobruno/dotvim.git
+	branch = master
