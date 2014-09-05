@@ -1,6 +1,9 @@
 # Always sort the files
 --sort-files
 
+# Print the filename for each match
+--with-filename
+
 # New file type definitions
 --type-set=bitbake=.bb,.bbappend,.bbclass,.conf,.inc
 --type-set=qt=.cpp,.cc,.cxx,.c,.m,.hpp,.hh,.h,.hxx,.qml,.qrc,.pro
