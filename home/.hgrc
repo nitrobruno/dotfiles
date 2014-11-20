@@ -1,0 +1,9 @@
+[diff]
+showfunc = true
+
+[extensions]
+color =
+
+[tortoisehg]
+ui.language = en
+editor = gvim
