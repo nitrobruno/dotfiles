@@ -72,13 +72,15 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
+    alias ls='ls --color=auto -v'
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+else
+    alias ls='ls -v'
 fi
 
 # some more ls aliases
@@ -107,9 +109,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 # Android SDK
-export PATH=$PATH:~/.android-sdk/tools
-export PATH=$PATH:~/.android-sdk/platform-tools
-export PATH=$PATH:~/.android-sdk/build-tools
+export PATH=$PATH:$HOME/.android-sdk/tools
+export PATH=$PATH:$HOME/.android-sdk/platform-tools
+export PATH=$PATH:$HOME/.android-sdk/build-tools
 
 # Default GPG key
 export GPGKEY=DF537521
@@ -117,3 +119,11 @@ export GPGKEY=DF537521
 # Homeshick (https://github.com/andsens/homeshick) configuration
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+
+# Todo.txt-cli
+export TODO_INSTALL_DIR=$HOME/Dev/todo.txt-cli
+export PATH=$PATH:$TODO_INSTALL_DIR
+export TODOTXT_DEFAULT_ACTION=list
+source $TODO_INSTALL_DIR/todo_completion
+alias t='todo.sh -d ~/.todo.cfg'
+complete -F _todo t
