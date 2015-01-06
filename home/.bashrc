@@ -108,10 +108,13 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Android SDK
-export PATH=$PATH:$HOME/.android-sdk/tools
-export PATH=$PATH:$HOME/.android-sdk/platform-tools
-export PATH=$PATH:$HOME/.android-sdk/build-tools
+# # Android SDK
+# export PATH=$PATH:$HOME/.android-sdk/tools
+# export PATH=$PATH:$HOME/.android-sdk/platform-tools
+# export PATH=$PATH:$HOME/.android-sdk/build-tools
+
+# Android Studio
+export PATH=$PATH:$HOME/.android-studio/bin
 
 # Default GPG key
 export GPGKEY=DF537521
