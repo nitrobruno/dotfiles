@@ -1,0 +1,1 @@
+alias trash='gvfs-trash'
