@@ -3,7 +3,10 @@
 # for examples
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -28,7 +31,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -104,29 +107,41 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  fi
 fi
 
 # Android SDK
-export PATH=$PATH:$HOME/.android-sdk/tools
-export PATH=$PATH:$HOME/.android-sdk/platform-tools
-export PATH=$PATH:$HOME/.android-sdk/build-tools
+if [ -d ~/.android-sdk ]; then
+  export PATH=$PATH:$HOME/.android-sdk/tools
+  export PATH=$PATH:$HOME/.android-sdk/platform-tools
+  export PATH=$PATH:$HOME/.android-sdk/build-tools
+fi
 
 # Android Studio
-export PATH=$PATH:$HOME/.android-studio/bin
+if [ -d ~/.android-studio ]; then
+  export PATH=$PATH:$HOME/.android-studio/bin
+fi
 
 # Default GPG key
 export GPGKEY=DF537521
 
 # Homeshick (https://github.com/andsens/homeshick) configuration
-source "$HOME/.homesick/repos/homeshick/homeshick.sh"
-source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+if [ -d ~/.homesick ]; then
+  source "$HOME/.homesick/repos/homeshick/homeshick.sh"
+  source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
+fi
 
 # Todo.txt-cli
 export TODO_INSTALL_DIR=$HOME/Dev/todo.txt-cli
-export PATH=$PATH:$TODO_INSTALL_DIR
-export TODOTXT_DEFAULT_ACTION=list
-source $TODO_INSTALL_DIR/todo_completion
-alias t='todo.sh -d ~/.todo.cfg'
-complete -F _todo t
+if [ -e $TODO_INSTALL_DIR/todo.sh ]; then
+  export PATH=$PATH:$TODO_INSTALL_DIR
+  export TODOTXT_DEFAULT_ACTION=list
+  source $TODO_INSTALL_DIR/todo_completion
+  alias t='todo.sh -d ~/.todo.cfg'
+  complete -F _todo t
+fi
