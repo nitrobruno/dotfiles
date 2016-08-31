@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -86,6 +86,9 @@ else
     alias ls='ls -v'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -127,21 +130,8 @@ if [ -d ~/.android-studio ]; then
   export PATH=$PATH:$HOME/.android-studio/bin
 fi
 
-# Default GPG key
-export GPGKEY=DF537521
-
 # Homeshick (https://github.com/andsens/homeshick) configuration
 if [ -d ~/.homesick ]; then
   source "$HOME/.homesick/repos/homeshick/homeshick.sh"
   source "$HOME/.homesick/repos/homeshick/completions/homeshick-completion.bash"
-fi
-
-# Todo.txt-cli
-export TODO_INSTALL_DIR=$HOME/Dev/todo.txt-cli
-if [ -e $TODO_INSTALL_DIR/todo.sh ]; then
-  export PATH=$PATH:$TODO_INSTALL_DIR
-  export TODOTXT_DEFAULT_ACTION=list
-  source $TODO_INSTALL_DIR/todo_completion
-  alias t='todo.sh -d ~/.todo.cfg'
-  complete -F _todo t
 fi
