@@ -9,6 +9,10 @@ source "/etc/zsh_command_not_found"
 source "$HOME/.homesick/repos/homeshick/homeshick.sh"
 fpath=($HOME/.homesick/repos/homeshick/completions $fpath) # Must be BEFORE compinit
 
+# Load virtualenvwrapper
+WORKON_HOME="$HOME/.config/virtualenv"
+source /usr/local/bin/virtualenvwrapper_lazy.sh
+
 # Set completion
 autoload -U bashcompinit # python-argcomplete (at least) needs bashcompinit
 bashcompinit
