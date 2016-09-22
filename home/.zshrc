@@ -1,5 +1,6 @@
 # Load plugins
 source <(antibody init)
+antibody bundle mafredri/zsh-async # Must be first
 antibody bundle < $HOME/.zsh_bundles
 
 # Command not found
