@@ -28,6 +28,7 @@ eval "$(register-python-argcomplete yt)"
 alias ls='ls --color=auto -v'
 alias ll='ls -alF'
 alias la='ls -A'
+alias lr='ls -ltr'
 alias l='ls -CF'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
