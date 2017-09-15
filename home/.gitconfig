@@ -4,3 +4,7 @@
 	default = simple
 [core]
 	autocrlf = input
+[credential]
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+[alias]
+	pull = pull --ff-only
