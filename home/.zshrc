@@ -20,10 +20,6 @@ bashcompinit
 autoload -U compinit
 compinit
 
-# Add yotta auto completion (uses bashcompinit)
-eval "$(register-python-argcomplete yotta)"
-eval "$(register-python-argcomplete yt)"
-
 # Add command aliases
 alias ls='ls --color=auto -v'
 alias ll='ls -alF'
@@ -34,6 +30,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias trash='gvfs-trash'
+alias git='LANGUAGE=en_US.UTF-8 git'
 
 # Vim CLI mode
 bindkey -v
