@@ -39,14 +39,18 @@ bindkey '^N' down-history
 bindkey '^r' history-incremental-search-backward
 
 # History
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.history
 setopt extended_history
 setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 setopt hist_reduce_blanks
+setopt hist_ignore_space
 setopt inc_append_history_time
+
+# Watson (http://tailordev.github.io/Watson/)
+export WATSON_DIR="/home/xenial-gnome/bperraudin/Dropbox (CATIE)/BPE/Administratif/Watson"
 
 # # Default options
 # setopt aliases

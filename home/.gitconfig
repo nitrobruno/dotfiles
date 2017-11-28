@@ -7,4 +7,8 @@
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [alias]
+	co = commit
 	pull = pull --ff-only
+	rev = rev-parse --short HEAD
+	st = status
+	last = log -1 HEAD
